@@ -1,6 +1,6 @@
 ﻿using MimeKit;
 
-namespace MailService.Services.Emails
+namespace MailService.Infrastructure.Smtp
 {
     public class Message
     {
@@ -39,7 +39,7 @@ namespace MailService.Services.Emails
 
             Body = body;
             From = from;
-            
+
             CC = cc ?? new List<string>();
             BCC = bcc ?? new List<string>();
         }

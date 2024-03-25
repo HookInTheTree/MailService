@@ -1,12 +1,11 @@
 ﻿
-using MailService.Services.Emails;
+using MailKit.Net.Smtp;
+using MailService.Infrastructure.Smtp;
 using Microsoft.Extensions.Options;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System.Text;
-using System.Text.Json.Serialization;
 
 namespace MailService.Infrastructure.RabbitMq
 {
@@ -22,7 +21,7 @@ namespace MailService.Infrastructure.RabbitMq
         private void Initialize()
         {
             var settings = _serviceProvider.GetService<IOptions<MailQueueSettings>>().Value;
-            var mailService = _serviceProvider.GetService<IMailService>();
+            var mailService = _serviceProvider.GetService<ISmtpClient>();
 
             var factory = new ConnectionFactory()
             {

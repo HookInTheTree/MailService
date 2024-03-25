@@ -1,6 +1,4 @@
-﻿using MailService.Services.Emails;
-
-namespace MailService.Infrastructure.Smtp
+﻿namespace MailService.Infrastructure.Smtp
 {
     /// <summary>
     /// Контракт SMTP-сервиса
