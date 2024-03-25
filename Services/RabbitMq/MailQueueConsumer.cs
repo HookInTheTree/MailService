@@ -1,5 +1,4 @@
 ﻿
-using MailKit.Net.Smtp;
 using MailService.Infrastructure.Smtp;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json.Linq;
@@ -58,7 +57,7 @@ namespace MailService.Infrastructure.RabbitMq
                         jData["BCC"].ToObject<List<string>>()
                     );
                  
-                    await mailService.SendAsync(message);
+                    await mailService.SendEmailAsync(message);
                 }
                 catch (Exception ex)
                 {
