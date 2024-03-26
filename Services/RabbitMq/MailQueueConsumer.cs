@@ -58,6 +58,7 @@ namespace MailService.Infrastructure.RabbitMq
                     );
                  
                     await mailService.SendEmailAsync(message);
+                    model.BasicAck(args.DeliveryTag, false);
                 }
                 catch (Exception ex)
                 {
